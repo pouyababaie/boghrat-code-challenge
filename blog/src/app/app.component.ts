@@ -23,26 +23,15 @@ interface IPost {
   standalone: false,
   styleUrl: './app.component.scss',
 })
-export class AppComponent implements OnInit, AfterViewInit {
+export class AppComponent implements OnInit {
   title = 'blog';
 
   posts$!: Observable<Array<IPost>>;
 
   postElements = viewChildren<ElementRef<HTMLDivElement>>('post');
 
-  constructor(private http: HttpClient, private renderer: Renderer2) {}
-
-  ngAfterViewInit(): void {
-    const posts = this.postElements().forEach((post, index) => {
-      if(index % 2 === 0) {
-       post.nativeElement.classList.add('even');
-      }
-      if(index % 3 === 0) {
-        post.nativeElement.classList.add('odd');
-       }
-    });
-  }
-
+  constructor(private http: HttpClient) {}
+  
   ngOnInit(): void {
     this.posts$ = this.http
       .get<Array<IPost>>('https://cdn.boghrat.com/api/codeChallenge/angular')
