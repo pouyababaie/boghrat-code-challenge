@@ -1,13 +1,6 @@
 import { HttpClient } from '@angular/common/http';
-import {
-  AfterViewInit,
-  Component,
-  ElementRef,
-  OnInit,
-  Renderer2,
-  viewChildren,
-} from '@angular/core';
-import { map, Observable, tap } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
+import { map, Observable } from 'rxjs';
 
 interface IPost {
   id: number;
