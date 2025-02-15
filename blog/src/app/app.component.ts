@@ -28,10 +28,8 @@ export class AppComponent implements OnInit {
 
   posts$!: Observable<Array<IPost>>;
 
-  postElements = viewChildren<ElementRef<HTMLDivElement>>('post');
-
   constructor(private http: HttpClient) {}
-  
+
   ngOnInit(): void {
     this.posts$ = this.http
       .get<Array<IPost>>('https://cdn.boghrat.com/api/codeChallenge/angular')
