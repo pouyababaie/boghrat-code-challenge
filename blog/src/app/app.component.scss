@@ -1,0 +1,22 @@
+.card img {
+  height: 150px;
+  object-fit: cover;
+}
+
+.post-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1rem;
+
+  .custom-grid-item {
+    grid-row: span 3;
+    grid-column: span 1;
+    max-height: fit-content;
+  }
+}
+
+@media (max-width: 996px) {
+  .post-container {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="post-container flex-wrap">
+    @for (post of posts$ | async; track $index; let odd =$odd; ;let even =
+    $even) {
+    <div class="grid-item" [ngClass]="{ 'custom-grid-item': even }">
+      <div class="card rounded-3 w-100 bg-light h-100">
+        <div class="card-header bg-transparent border-0">
+          <img
+            [src]="post.img"
+            class="card-img-top rounded mb-2 mt-2"
+            [alt]="post.title"
+          />
+          <h5 class="card-title">
+            <b>{{ post.title }}</b>
+          </h5>
+        </div>
+        <div class="card-body">
+          <p class="card-text">
+            {{ post.abstract }}
+          </p>
+        </div>
+        <div class="card-footer text-end bg-transparent border-0">
+          <label>{{ post.date }}</label>
+        </div>
+      </div>
+    </div>
+    }
+  </div>
+</div>
